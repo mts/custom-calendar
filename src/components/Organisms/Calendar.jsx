@@ -1,19 +1,29 @@
 import React from 'react';
-import './calendar.scss';
+import CalendarView from '../Molecules/CalendarView';
+
+const defaultDate = {
+  day: 1,
+  month: 1,
+  year: 2018
+};
+
+const makeDates = (date) => {
+  // const dates = Array(11).fill.map((_, idx) => idx + 1);
+
+  return {};
+};
 
 const Calendar = () => {
+  const dates = makeDates(defaultDate);
   const dayNumbers = Array(35).fill().map((_, idx) => idx + 1);
   const dayNames = ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za'];
 
   return (
-    <div className="calendar">
-      {dayNames.map((dayName) => (
-        <span key={dayName} className="calendar__day">{dayName}</span>
-      ))}
-      {dayNumbers.map((dayNumber) => (
-        <span key={dayNumber} className="calendar__day">{dayNumber}</span>
-      ))}
-    </div>
+    <CalendarView
+        dates={dates}
+        dayNumbers={dayNumbers}
+        dayNames={dayNames}
+    />
   );
 }
 
