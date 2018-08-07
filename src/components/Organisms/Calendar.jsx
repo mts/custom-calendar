@@ -44,17 +44,40 @@ const getViewDates = (date) => {
     .find((month) => month.id === date.monthOfYear).days;
 };
 
+// const getPreviousDay = (date) => {
+//   return {
+//     year: date.month === 1 && date.dateOfTheMonth === 1
+//       ? date.year - 1
+//       : date.year,
+//     monthOfYear: date.month === 1
+//       ? 11
+//       : date.month - 1,
+//     dateOfTheMonth: date.dateOfTheMonth === 1
+//       ? date.monthOfYear % 2 !== 0
+//           ? 32
+//           : date.year % 5 === 0 && date.monthOfYear === 11
+//             ? 32
+//             : 33
+//       : date.dateOfTheMonth - 1,
+//     dayOfTheWeek: date.dayOfTheWeek - 1,
+//   };
+// };
+
+// const complementFromPreviousMonth = (dates) => {
+//   return dates.unshift(getPreviousDay(dates[0]))
+// };
+
 const Calendar = () => {
   console.clear();
 
   const dayNames = ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za'];
 
-  // const someDay = {
-  //   year: 2018,
-  //   monthOfYear: 8,
-  //   dateOfTheMonth: 7,
-  //   dayOfTheWeek: 2,
-  // };
+  const someDay = {
+    year: 2018,
+    monthOfYear: 6,
+    dateOfTheMonth: 7,
+    dayOfTheWeek: 2,
+  };
 
   const today = {
     year: new Date().getFullYear(),
@@ -62,10 +85,14 @@ const Calendar = () => {
     dateOfTheMonth: new Date().getUTCDate(),
   };
 
-  const viewDates = getViewDates(today);
-  console.log('~today~', today);
-  console.log('~viewDates~after~find', viewDates);
+  const viewDates = getViewDates(someDay);
+  console.log('~someDay~', someDay);
 
+  // while(viewDates[0].dayOfTheWeek > 0) {
+  //   complementFromPreviousMonth(viewDates);
+  // }
+
+  console.log('~viewDates~after~find', viewDates);
   return (
     <CalendarView
         dayNames={dayNames}
