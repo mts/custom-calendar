@@ -16,14 +16,13 @@ const Calendar = () => {
   const today = { day: 1, month: 1, year: 2018};
   const currentYearDates = populateYear(today);
   const dayNames = ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za'];
-  const dayNumbers = Array(35).fill().map((_, idx) => idx + 1);
 
+  console.log('~currentYearDates~', currentYearDates);
   return (
     <CalendarView
         today={today}
         currentYearDates={currentYearDates}
         dayNames={dayNames}
-        dayNumbers={dayNumbers}
     />
   );
 }
