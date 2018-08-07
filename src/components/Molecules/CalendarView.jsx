@@ -12,10 +12,18 @@ const CalendarView = ({dayNames, today, viewDates}) => {
   return (
     <div className="calendar-view">
       {dayNames.map((dayName) => (
-        <span key={dayName} className="calendar-view__day">{dayName}</span>
+        <span
+          key={dayName}
+          className="calendar-view__day">
+            {dayName}
+        </span>
       ))}
       {viewDates.map((date) => (
-        <span key={date.day} className="calendar-view__day">{date.day}</span>
+        <span
+          key={date.dateOfTheMonth}
+          className="calendar-view__day">
+            {date.dateOfTheMonth}
+        </span>
       ))}
     </div>
   );

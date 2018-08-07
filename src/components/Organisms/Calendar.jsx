@@ -3,35 +3,59 @@ import CalendarView from '../Molecules/CalendarView';
 
 const yearStart = 1900;
 
+const getDay = (year, month, day) => ({
+  year: year,
+  monthOfYear: month,
+  dateOfTheMonth: day,
+  dayOfTheWeek: -1
+});
+
 const getRange = ({range, indexSeed, valueSeed}) => Array(range).fill().map((_, idx) => valueSeed + idx + indexSeed);
 
 const getViewDates = (date) => {
-  return getRange({range: 11, indexSeed: 1, valueSeed: 0})
-    .map((month) => (month % 2 === 0
-      ? {id: month, days: getRange({range: 32, indexSeed: 1, valueSeed: 0})}
-      : {id: month, days: date.year % 5 === 0 && month === 11
-        ? getRange({range: 32, indexSeed: 1, valueSeed: 0})
-        : getRange({range: 33, indexSeed: 1, valueSeed: 0})}))
-    .find((month) => month.id === date.month).days
-    .map((idx) => ({ day: idx, month: date.month, year: date.year}));
-};
-
-const getCenturyDates = () => {
-  return getRange({
-    range: new Date().getFullYear() - yearStart + 1,
-    indexSeed: 0,
-    valueSeed: yearStart
-  });
+  return getRange({range: new Date().getFullYear() - yearStart + 1, indexSeed: 0, valueSeed: yearStart})
+    .map((year) => ({
+      id: year,
+      months: getRange({range: 11, indexSeed: 1, valueSeed: 0})
+              .map((month) => (month % 2 === 0
+                ? {
+                    id: month,
+                    days: getRange({range: 32, indexSeed: 1, valueSeed: 0})
+                            .map(day => getDay(year, month, day))
+                  }
+                : {
+                  id: month,
+                  days: year % 5 === 0 && month === 11
+                    ? getRange({range: 32, indexSeed: 1, valueSeed: 0})
+                        .map(day => getDay(year, month, day))
+                    : getRange({range: 33, indexSeed: 1, valueSeed: 0})
+                        .map(day => getDay(year, month, day))
+                }))
+    }))
+    .find((year) => year.id === date.year).months
+    .find((month) => month.id === date.monthOfYear).days;
 };
 
 const Calendar = () => {
+  console.clear();
+
   const dayNames = ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za'];
-  const today = { day: 1, month: 1, year: 2018};
 
-  const centuryDates = getCenturyDates(today);
-  console.log('~centuryDates~', centuryDates);
+  const someDay = {
+    year: 2018,
+    monthOfYear: 8,
+    dateOfTheMonth: 7,
+    dayOfTheWeek: 2,
+  };
 
-  const viewDates = getViewDates(today);
+  const today = {
+    year: new Date().getFullYear(),
+    monthOfYear: new Date().getMonth() + 1,
+    dateOfTheMonth: new Date().getUTCDate(),
+    dayOfTheWeek: new Date().getDay()
+  };
+
+  const viewDates = getViewDates(someDay);
 
   return (
     <CalendarView
