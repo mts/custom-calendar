@@ -2,35 +2,31 @@ import React from 'react';
 import {shape, arrayOf, string, number} from 'prop-types';
 import './CalendarView.scss';
 
-const CalendarView = ({currentYearDates, today, dayNames}) => {
-  const currentMonth = currentYearDates.find((month) => month.id === today.month);
-  const currentMonthDays = currentMonth.days;
+const dateShape = shape({
+  day: number,
+  month: number,
+  year: number
+});
 
-  console.log('~currentMonth~', currentMonth);
-
+const CalendarView = ({dayNames, today, viewDates}) => {
   return (
     <div className="calendar-view">
       {dayNames.map((dayName) => (
         <span key={dayName} className="calendar-view__day">{dayName}</span>
       ))}
-      {currentMonthDays.map((dayNumber) => (
-        <span key={dayNumber} className="calendar-view__day">{dayNumber}</span>
+      {viewDates.map((date) => (
+        <span key={date.day} className="calendar-view__day">{date.day}</span>
       ))}
     </div>
   );
 }
 
 CalendarView.propTypes = {
-  today:shape({
-    day: number,
-    month: number,
-    year: number
-  }),
-  currentYearDates: arrayOf(shape({
-    id: number,
-    days: arrayOf(number)
-  })),
-  dayNames: arrayOf(string)
+  dayNames: arrayOf(string).isRequired,
+  today: dateShape.isRequired,
+  viewDates: arrayOf(
+    shape(dateShape.isRequired)
+  ).isRequired,
 };
 
 export default CalendarView;
