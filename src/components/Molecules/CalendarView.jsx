@@ -1,5 +1,5 @@
 import React from 'react';
-import {object, arrayOf, string} from 'prop-types';
+import {shape, object, arrayOf, string, number} from 'prop-types';
 import './CalendarView.scss';
 
 const CalendarView = ({dates, dayNames, dayNumbers}) => {
@@ -16,8 +16,14 @@ const CalendarView = ({dates, dayNames, dayNumbers}) => {
 }
 
 CalendarView.propTypes = {
+  today:shape({
+    day: string,
+    month: string,
+    year: string
+  }),
   dates: object,
-  dayNames: arrayOf(string)
+  dayNames: arrayOf(string),
+  dayNumbers: arrayOf(number)
 };
 
 export default CalendarView;
