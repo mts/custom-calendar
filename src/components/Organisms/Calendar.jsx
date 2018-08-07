@@ -1,22 +1,27 @@
 import React from 'react';
 import CalendarView from '../Molecules/CalendarView';
 
-const makeDates = (date) => {
-  const dates = Array(11).fill().map((_, idx) => idx + 1);
+const populateYear = (date) => {
+  const currentYearDates = Array(11).fill().map((_, idx) => idx + 1)
+    .map((month) => (month % 2 === 0
+      ? {id: month, days: Array(32).fill().map((_, idx) => idx + 1)}
+      : {id: month, days: date.year % 5 === 0 && month === 11
+        ? Array(32).fill().map((_, idx) => idx + 1)
+        : Array(33).fill().map((_, idx) => idx + 1)}));
 
-  return {};
+  return currentYearDates;
 };
 
 const Calendar = () => {
   const today = { day: 1, month: 1, year: 2018};
-  const datesofYear = makeDates(today);
+  const currentYearDates = populateYear(today);
   const dayNames = ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za'];
   const dayNumbers = Array(35).fill().map((_, idx) => idx + 1);
 
   return (
     <CalendarView
         today={today}
-        datesofYear={datesofYear}
+        currentYearDates={currentYearDates}
         dayNames={dayNames}
         dayNumbers={dayNumbers}
     />

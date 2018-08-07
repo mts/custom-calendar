@@ -2,7 +2,7 @@ import React from 'react';
 import {shape, object, arrayOf, string, number} from 'prop-types';
 import './CalendarView.scss';
 
-const CalendarView = ({dates, dayNames, dayNumbers}) => {
+const CalendarView = ({currentYearDates, dayNames, dayNumbers}) => {
   return (
     <div className="calendar-view">
       {dayNames.map((dayName) => (
@@ -21,7 +21,7 @@ CalendarView.propTypes = {
     month: string,
     year: string
   }),
-  dates: object,
+  currentYearDates: object,
   dayNames: arrayOf(string),
   dayNumbers: arrayOf(number)
 };
