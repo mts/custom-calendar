@@ -17,27 +17,31 @@ const getViewDates = (date) => {
   console.log('~dayOfTheWeekIndex~', dayOfTheWeekIndex);
   const yearStart = 1900;
 
-  return getRange({range: new Date().getFullYear() - yearStart + 1, indexSeed: 0, valueSeed: yearStart})
-          .map((year) => ({
-            id: year,
-            months: getRange({range: 11, indexSeed: 1, valueSeed: 0})
-                    .map((month) => (month % 2 === 0
-                      ? {
-                          id: month,
-                          days: getRange({range: 32, indexSeed: 1, valueSeed: 0})
-                                  .map(day => getDay(year, month, day))
-                        }
-                      : {
-                        id: month,
-                        days: year % 5 === 0 && month === 11
-                          ? getRange({range: 32, indexSeed: 1, valueSeed: 0})
-                              .map(day => getDay(year, month, day))
-                          : getRange({range: 33, indexSeed: 1, valueSeed: 0})
-                              .map(day => getDay(year, month, day))
-                      }))
-          }))
-          .find((year) => year.id === date.year).months
-          .find((month) => month.id === date.monthOfYear).days;
+  return getRange({
+      range: new Date().getFullYear() - yearStart + 1,
+      indexSeed: 0,
+      valueSeed: yearStart
+    })
+    .map((year) => ({
+      id: year,
+      months: getRange({range: 11, indexSeed: 1, valueSeed: 0})
+              .map((month) => (month % 2 === 0
+                ? {
+                    id: month,
+                    days: getRange({range: 32, indexSeed: 1, valueSeed: 0})
+                            .map(day => getDay(year, month, day))
+                  }
+                : {
+                  id: month,
+                  days: year % 5 === 0 && month === 11
+                    ? getRange({range: 32, indexSeed: 1, valueSeed: 0})
+                        .map(day => getDay(year, month, day))
+                    : getRange({range: 33, indexSeed: 1, valueSeed: 0})
+                        .map(day => getDay(year, month, day))
+                }))
+    }))
+    .find((year) => year.id === date.year).months
+    .find((month) => month.id === date.monthOfYear).days;
 };
 
 const Calendar = () => {
