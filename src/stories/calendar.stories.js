@@ -4,5 +4,11 @@ import Calendar from '../components/Organisms/Calendar';
 
 storiesOf('Calendar', module)
   .add('default', () => (
-    <Calendar />
+    <Calendar
+      today={{
+        year: 2018,
+        monthOfYear: 8,
+        dateOfTheMonth: 7,
+      }}
+    />
   ));
