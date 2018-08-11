@@ -2,6 +2,7 @@ import React from 'react';
 import CalendarView from '../Molecules/Date/CalendarView';
 import CalendarInput from '../Molecules/Date/CalendarInput';
 import {getDisplayDays} from '../../utility/calendar';
+import './Calendar.scss';
 
 class Calendar extends React.Component {
   constructor(props) {
