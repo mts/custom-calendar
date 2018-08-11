@@ -15,10 +15,10 @@ const getRange = ({range, indexSeed, valueSeed}) => Array(range).fill().map((_, 
 const getViewDates = (date) => {
   dayOfTheWeekIndex = 0;
   console.log('~dayOfTheWeekIndex~', dayOfTheWeekIndex);
-  const yearStart = 1900;
+  const yearStart = date.year - 1;
 
   return getRange({
-      range: new Date().getFullYear() - yearStart + 1,
+      range: date.year - yearStart + 2,
       indexSeed: 0,
       valueSeed: yearStart
     })
@@ -39,9 +39,9 @@ const getViewDates = (date) => {
                     : getRange({range: 33, indexSeed: 1, valueSeed: 0})
                         .map(day => getDay(year, month, day))
                 }))
-    }))
-    .find((year) => year.id === date.year).months
-    .find((month) => month.id === date.monthOfYear).days;
+    }));
+    // .find((year) => year.id === date.year).months
+    // .find((month) => month.id === date.monthOfYear).days;
 };
 
 const Calendar = () => {
@@ -52,7 +52,7 @@ const Calendar = () => {
   const someDay = {
     year: 2018,
     monthOfYear: 7,
-    dateOfTheMonth: 7,
+    dateOfTheMonth: 11,
     dayOfTheWeek: 6,
   };
 
@@ -65,7 +65,7 @@ const Calendar = () => {
   const viewDates = getViewDates(someDay);
   console.log('~someDay~', someDay);
 
-  console.log('~viewDates.length~', viewDates.length);
+  console.log('~viewDates~', viewDates);
 
   return (
     <CalendarView
