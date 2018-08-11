@@ -8,7 +8,7 @@ const dateShape = shape({
   year: number
 });
 
-const CalendarView = ({dayNames, today, viewDates}) => {
+const CalendarView = ({dayNames, today, displayDays}) => {
   return (
     <div className="calendar-view">
       {dayNames.map((dayName) => (
@@ -18,7 +18,7 @@ const CalendarView = ({dayNames, today, viewDates}) => {
             {dayName}
         </span>
       ))}
-      {viewDates.map((date, index) => (
+      {displayDays.map((date, index) => (
         <span
           key={index}
           className="calendar-view__day">
@@ -32,7 +32,7 @@ const CalendarView = ({dayNames, today, viewDates}) => {
 CalendarView.propTypes = {
   dayNames: arrayOf(string).isRequired,
   today: dateShape.isRequired,
-  viewDates: arrayOf(
+  displayDays: arrayOf(
     shape(dateShape.isRequired)
   ).isRequired,
 };
