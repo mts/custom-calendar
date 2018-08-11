@@ -4,7 +4,7 @@ import Select from '../Action/Select';
 import Label from '../../Atoms/Text/Label';
 import cx from 'classnames';
 import './CalendarView.scss';
-import {monthOptions, yearOptions} from '../../../data/select';
+import {monthOptions, yearOptions, yearStart} from '../../../data/select';
 
 const dateShape = shape({
   day: number,
@@ -50,13 +50,13 @@ class CalendarView extends React.Component {
         <div className="calendar-view__month-year">
           <Select
             options={monthOptions.map((month) => month)}
-            selectedOptionIndex={monthOptions.length - 1}
+            selectedOptionIndex={displayDays.find((day) => day.today === true).monthOfYear - 1}
             optionType={'month'}
             onChange={this.onMonthChange}
           />
           <Select
             options={yearOptions.map((year) => String(year))}
-            selectedOptionIndex={yearOptions.length - 1}
+            selectedOptionIndex={displayDays.find((day) => day.today === true).year - yearStart}
             optionType={'year'}
             onChange={this.onYearChange}
           />

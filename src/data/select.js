@@ -1,5 +1,7 @@
 import {getRange} from '../utility/number';
 
+export const yearStart = 1900;
+
 export const weekOptions = [
   'Maandag',
   'Dinsdag',
@@ -27,5 +29,5 @@ export const monthOptions = [
 export const yearOptions = getRange({
       range: 119,
       indexSeed: 0,
-      valueSeed: 1900
+      valueSeed: yearStart
     })
