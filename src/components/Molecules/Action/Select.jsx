@@ -1,5 +1,5 @@
 import React from 'react'
-import {arrayOf, string, number, oneOf} from 'prop-types';
+import {arrayOf, string, number, oneOf ,func} from 'prop-types';
 import Icon from '../../Atoms/Image/Icon';
 import Label from '../../Atoms/Text/Label';
 import cx from 'classnames';
@@ -17,20 +17,24 @@ class Select extends React.Component {
   }
 
   onClickLeft = () => {
-    const {options} = this.props;
+    const {options, onChange} = this.props;
     const {selectedIndex} = this.state;
 
     this.setState({
       selectedIndex: selectedIndex !== 0 ? selectedIndex - 1 : options.length - 1
+    }, () => {
+      onChange(this.state.selectedIndex);
     });
   }
 
   onClickRight = () => {
-    const {options} = this.props;
+    const {options, onChange} = this.props;
     const {selectedIndex} = this.state;
 
     this.setState({
       selectedIndex: selectedIndex !== options.length - 1 ? selectedIndex + 1 : 0
+    }, () => {
+      onChange(this.state.selectedIndex);
     });
   }
 
@@ -65,7 +69,8 @@ class Select extends React.Component {
 Select.propTypes = {
   options: arrayOf(string).isRequired,
   selectedOptionIndex: number.isRequired,
-  optionType: oneOf(['week', 'month', 'year'])
+  optionType: oneOf(['week', 'month', 'year']),
+  onChange: func
 };
 
 export default Select;

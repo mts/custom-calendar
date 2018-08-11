@@ -12,48 +12,82 @@ const dateShape = shape({
   year: number
 });
 
-const CalendarView = ({dayNames, displayDays}) => {
-  return (
-    <div className="calendar-view">
-      <div className="calendar-view__text">
-        <Label color="grey" size="small" text="Ingangsdatum" />
+class CalendarView extends React.Component {
+  onDayChange = (index) => {
+    const {onChange, displayDays} = this.props;
+
+    onChange(displayDays.find((day) => day.index === index));
+  };
+
+  onMonthChange = (index) => {
+    const {onChange, displayDays} = this.props;
+
+    onChange({
+        year: displayDays.find((day) => day.today === true).year,
+        monthOfYear: index + 1,
+        dateOfTheMonth: 1,
+    });
+  };
+
+  onYearChange = (index) => {
+    const {onChange, displayDays} = this.props;
+
+    onChange({
+        year: yearOptions[index],
+        monthOfYear: displayDays.find((day) => day.today === true).monthOfYear,
+        dateOfTheMonth: 1,
+    });
+  };
+
+  render() {
+    const{dayNames, displayDays} = this.props;
+
+    return (
+      <div className="calendar-view">
+        <div className="calendar-view__text">
+          <Label color="grey" size="small" text="Ingangsdatum" />
+        </div>
+        <div className="calendar-view__month-year">
+          <Select
+            options={monthOptions.map((month) => month)}
+            selectedOptionIndex={monthOptions.length - 1}
+            optionType={'month'}
+            onChange={this.onMonthChange}
+          />
+          <Select
+            options={yearOptions.map((year) => String(year))}
+            selectedOptionIndex={yearOptions.length - 1}
+            optionType={'year'}
+            onChange={this.onYearChange}
+          />
+        </div>
+        <div className="calendar-view__day">
+          {dayNames.map((dayName) => (
+            <span
+              key={dayName}
+              className="calendar-view__day-day">
+                {dayName}
+            </span>
+          ))}
+          {displayDays.map((day, index) => (
+            <span
+              ref={day.index}
+              onClick={() => { this.onDayChange(day.index); }}
+              key={index}
+              className={cx('calendar-view__day-day', {
+                'calendar-view__day-day-last-month': day.lastMonth,
+                'calendar-view__day-day-this-month': day.thisMonth,
+                'calendar-view__day-day-today': day.today,
+                'calendar-view__day-day-next-month': day.nextMonth
+              })}
+              >
+                {day.dateOfTheMonth}
+            </span>
+          ))}
+        </div>
       </div>
-      <div className="calendar-view__month-year">
-        <Select
-          options={monthOptions.map((month) => month)}
-          selectedOptionIndex={monthOptions.length - 1}
-          optionType={'month'}
-        />
-        <Select
-          options={yearOptions.map((year) => String(year))}
-          selectedOptionIndex={yearOptions.length - 1}
-          optionType={'year'}
-        />
-      </div>
-      <div className="calendar-view__day">
-        {dayNames.map((dayName) => (
-          <span
-            key={dayName}
-            className="calendar-view__day-day">
-              {dayName}
-          </span>
-        ))}
-        {displayDays.map((day, index) => (
-          <span
-            key={index}
-            className={cx('calendar-view__day-day', {
-              'calendar-view__day-day-last-month': day.lastMonth,
-              'calendar-view__day-day-this-month': day.thisMonth,
-              'calendar-view__day-day-today': day.today,
-              'calendar-view__day-day-next-month': day.nextMonth
-            })}
-            >
-              {day.dateOfTheMonth}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 CalendarView.defaultProps = {
