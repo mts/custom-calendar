@@ -1,5 +1,5 @@
 import React from 'react';
-import {shape, arrayOf, string, number} from 'prop-types';
+import {shape, arrayOf, number} from 'prop-types';
 import './CalendarView.scss';
 
 const dateShape = shape({
@@ -8,7 +8,7 @@ const dateShape = shape({
   year: number
 });
 
-const CalendarView = ({dayNames, today, displayDays}) => {
+const CalendarView = ({dayNames, displayDays}) => {
   return (
     <div className="calendar-view">
       {dayNames.map((dayName) => (
@@ -29,9 +29,11 @@ const CalendarView = ({dayNames, today, displayDays}) => {
   );
 }
 
+CalendarView.defaultProps = {
+  dayNames: ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za']
+};
+
 CalendarView.propTypes = {
-  dayNames: arrayOf(string).isRequired,
-  today: dateShape.isRequired,
   displayDays: arrayOf(
     shape(dateShape.isRequired)
   ).isRequired,

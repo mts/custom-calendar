@@ -5,8 +5,6 @@ import {getDisplayDays} from '../../utility/calendar';
 const Calendar = () => {
   console.clear();
 
-  const dayNames = ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za'];
-
   const today = {
     year: 2018,
     monthOfYear: 8,
@@ -14,11 +12,7 @@ const Calendar = () => {
   };
 
   return (
-    <CalendarView
-        dayNames={dayNames}
-        today={today}
-        displayDays={getDisplayDays(today)}
-    />
+    <CalendarView displayDays={getDisplayDays(today)} />
   );
 }
 

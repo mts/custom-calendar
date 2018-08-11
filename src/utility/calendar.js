@@ -11,18 +11,30 @@ const getRange = ({range, indexSeed, valueSeed}) => Array(range).fill().map((_, 
 
 const addLastMonthsDates = (filteredIndexedDays, allIndexedDays) => {
   while(filteredIndexedDays[0].dayOfTheWeek > 0) {
-    filteredIndexedDays.unshift(allIndexedDays[filteredIndexedDays[0].index - 1])
+    filteredIndexedDays.unshift({...allIndexedDays[filteredIndexedDays[0].index - 1], lastMonth: true})
   }
 };
 
 const addNextMonthsDates = (filteredIndexedDays, allIndexedDays) => {
   while(filteredIndexedDays.length < 42) {
-    filteredIndexedDays.push(allIndexedDays[filteredIndexedDays[filteredIndexedDays.length -  1].index + 1])
+    filteredIndexedDays.push({...allIndexedDays[filteredIndexedDays[filteredIndexedDays.length -  1].index + 1], nextMonth: true})
   }
 };
 
 const getFilteredIndexedDays = (allIndexedDays, today) => {
-  return allIndexedDays.filter((day) => day.year === today.year && day.monthOfYear === today.monthOfYear)
+  return allIndexedDays
+    .filter((day) => day.year === today.year && day.monthOfYear === today.monthOfYear)
+    .map((day) => {
+      if (day.year === today.year && day.monthOfYear === today.monthOfYear && day.dateOfTheMonth === today.dateOfTheMonth) {
+        return {...day, thisMonth: true, today: true}
+      }
+
+      if (day.year === today.year && day.monthOfYear === today.monthOfYear) {
+        return {...day, thisMonth: true}
+      }
+
+      return day;
+    });
 };
 
 const getAllIndexedDays = (allDays) => {
