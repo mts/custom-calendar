@@ -9,19 +9,19 @@ const getDay = (year, month, day) => ({
 
 const getRange = ({range, indexSeed, valueSeed}) => Array(range).fill().map((_, index) => valueSeed + index + indexSeed);
 
-const addLastMonthsDates = (filteredIndexedDays, allIndexedDays) => {
+const addLastMonthsDays = (filteredIndexedDays, allIndexedDays) => {
   while(filteredIndexedDays[0].dayOfTheWeek > 0) {
     filteredIndexedDays.unshift({...allIndexedDays[filteredIndexedDays[0].index - 1], lastMonth: true})
   }
 };
 
-const addNextMonthsDates = (filteredIndexedDays, allIndexedDays) => {
+const addNextMonthsDays = (filteredIndexedDays, allIndexedDays) => {
   while(filteredIndexedDays.length < 42) {
     filteredIndexedDays.push({...allIndexedDays[filteredIndexedDays[filteredIndexedDays.length -  1].index + 1], nextMonth: true})
   }
 };
 
-const getFilteredIndexedDays = (allIndexedDays, today) => {
+const getThisMonthsDays = (allIndexedDays, today) => {
   return allIndexedDays
     .filter((day) => day.year === today.year && day.monthOfYear === today.monthOfYear)
     .map((day) => {
@@ -44,7 +44,6 @@ const getAllIndexedDays = (allDays) => {
 
   return allIndexedDays.map((day, index) => ({ ...day, index}));
 };
-
 
 const getEvenMonthDays = (year, month) => ({
   id: month,
@@ -81,11 +80,11 @@ export const getDisplayDays = (today) => {
 
     const allIndexedDays = getAllIndexedDays(allDays);
 
-    const filteredIndexedDays = getFilteredIndexedDays(allIndexedDays, today);
+    const filteredIndexedDays = getThisMonthsDays(allIndexedDays, today);
 
-    addLastMonthsDates(filteredIndexedDays, allIndexedDays);
+    addLastMonthsDays(filteredIndexedDays, allIndexedDays);
 
-    addNextMonthsDates(filteredIndexedDays, allIndexedDays);
+    addNextMonthsDays(filteredIndexedDays, allIndexedDays);
 
     return filteredIndexedDays;
 };
