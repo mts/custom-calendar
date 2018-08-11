@@ -48,7 +48,6 @@ class CalendarView extends React.Component {
   render() {
     const{dayNames, displayDays} = this.props;
 
-    console.log('~month~', displayDays.find((day) => day.today === true).monthOfYear);
     return (
       <div className="calendar-view">
         <div className="calendar-view__text">

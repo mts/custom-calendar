@@ -27,7 +27,7 @@ export const monthOptions = [
 ];
 
 export const yearOptions = getRange({
-      range: 119,
+      range: 1000,
       indexSeed: 0,
       valueSeed: yearStart
     })

@@ -5,65 +5,32 @@ import Label from '../../Atoms/Text/Label';
 import cx from 'classnames';
 import './Select.scss';
 
-class Select extends React.Component {
-  constructor(props) {
-    super(props);
-
-    const {options, selectedOptionIndex} = this.props;
-    this.state = {
-      selectedIndex: options.length > 0 ? selectedOptionIndex : -1
-    }
+const Select = ({options, selectedOptionIndex, optionType, onChange}) =>  {
+  const onClickLeft = () => {
+    onChange(selectedOptionIndex !== 0 ? selectedOptionIndex - 1 : options.length - 1);
   }
 
-  onClickLeft = () => {
-    const {options, onChange} = this.props;
-    const {selectedIndex} = this.state;
-
-    this.setState({
-      selectedIndex: selectedIndex !== 0 ? selectedIndex - 1 : options.length - 1
-    }, () => {
-      onChange(this.state.selectedIndex);
-    });
+  const onClickRight = () => {
+    onChange(selectedOptionIndex !== options.length - 1 ? selectedOptionIndex + 1 : 0);
   }
 
-  onClickRight = () => {
-    const {options, onChange} = this.props;
-    const {selectedIndex} = this.state;
-
-    this.setState({
-      selectedIndex: selectedIndex !== options.length - 1 ? selectedIndex + 1 : 0
-    }, () => {
-      onChange(this.state.selectedIndex);
-    });
-  }
-
-  render() {
-    const {options, optionType} = this.props;
-    const {selectedIndex} = this.state;
-    console.log('~render~selectedIndex', selectedIndex);
-
-    if (selectedIndex === -1) {
-      return null;
-    }
-
-    return (
-      <div className="select">
-        <div onClick={this.onClickLeft} className="select__left">
-          <Icon name={'chevron-thin-left'} width={15} height={15} />
-        </div>
-        <div className={cx('select__center', {
-          'select__center--week': optionType === 'week',
-          'select__center--month': optionType === 'month',
-          'select__center--year': optionType === 'year'
-        })}>
-          <Label color="blue" size="medium" text={options[selectedIndex]} />
-        </div>
-        <div onClick={this.onClickRight} className="select__right">
-          <Icon name={'chevron-thin-right'} width={15} height={15} />
-        </div>
+  return (
+    <div className="select">
+      <div onClick={onClickLeft} className="select__left">
+        <Icon name={'chevron-thin-left'} width={15} height={15} />
       </div>
-    )
-  }
+      <div className={cx('select__center', {
+        'select__center--week': optionType === 'week',
+        'select__center--month': optionType === 'month',
+        'select__center--year': optionType === 'year'
+      })}>
+        <Label color="blue" size="medium" text={options[selectedOptionIndex]} />
+      </div>
+      <div onClick={onClickRight} className="select__right">
+        <Icon name={'chevron-thin-right'} width={15} height={15} />
+      </div>
+    </div>
+  )
 }
 
 Select.propTypes = {

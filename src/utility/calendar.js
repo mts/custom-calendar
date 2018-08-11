@@ -61,7 +61,6 @@ const getOddMonthDays = (year, month) => ({
 });
 
 export const getDisplayDays = (today) => {
-  console.log('~today~', today);
   dayOfTheWeekIndex = 0;
 
   const yearStart = today.year - 1;
