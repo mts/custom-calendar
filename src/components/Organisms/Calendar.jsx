@@ -44,47 +44,6 @@ const getViewDates = (date) => {
     .find((month) => month.id === date.monthOfYear).days;
 };
 
-const getPreviousDay = (date) => {
-  return {
-    year: date.month === 1 && date.dateOfTheMonth === 1
-      ? date.year - 1
-      : date.year,
-    monthOfYear: date.month === 1
-      ? 11
-      : date.month - 1,
-    dateOfTheMonth: date.dateOfTheMonth === 1
-      ? date.monthOfYear % 2 !== 0
-          ? 32
-          : date.year % 5 === 0 && date.monthOfYear === 11
-            ? 32
-            : 33
-      : date.dateOfTheMonth - 1,
-    dayOfTheWeek: date.dayOfTheWeek - 1,
-  };
-};
-
-const getNextDay = (date) => {
-  console.log('~date~', date);
-
-  const lastDayOfTheYear = (date) => {
-    return (date.monthOfYear % 2 === 0 && date.dateOfTheMonth === 32) ||
-          (date.monthOfYear % 2 !== 0 && date.year % 5 !== 0 && date.dateOfTheMonth === 33) ||
-          (date.monthOfYear % 2 !== 0 && date.year % 5 === 0 && date.dateOfTheMonth === 32)
-  };
-
-  return {
-    year: date.year,
-    monthOfYear: date.monthOfYear === 11 ? 1 : date.monthOfYear + 1,
-    dateOfTheMonth: (() => {
-      if (lastDayOfTheYear) {
-        return 1;
-      }
-      return date.dateOfTheMonth + 1;
-    })(),
-    dayOfTheWeek: date.dayOfTheWeek === 6 ? 0 : date.dayOfTheWeek + 1,
-  };
-};
-
 const Calendar = () => {
   console.clear();
 
@@ -92,9 +51,9 @@ const Calendar = () => {
 
   const someDay = {
     year: 2018,
-    monthOfYear: 6,
+    monthOfYear: 7,
     dateOfTheMonth: 7,
-    dayOfTheWeek: 2,
+    dayOfTheWeek: 6,
   };
 
   const today = {
@@ -106,17 +65,8 @@ const Calendar = () => {
   const viewDates = getViewDates(someDay);
   console.log('~someDay~', someDay);
 
-  while(viewDates[0].dayOfTheWeek > 0) {
-    viewDates.unshift(getPreviousDay(viewDates[0]))
-  }
-
   console.log('~viewDates.length~', viewDates.length);
 
-  while(viewDates.length < 42) {
-    viewDates.push(getNextDay(viewDates[viewDates.length - 1]))
-  }
-
-  console.log('~viewDates~after~find', viewDates);
   return (
     <CalendarView
         dayNames={dayNames}
