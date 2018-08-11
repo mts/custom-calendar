@@ -100,7 +100,7 @@ Launches the test runner in the interactive watch mode.
 ```
 
 - `components` folder contains all the components structured in `atomic design patterns`
-as `atoms`, `molecules` and organisms` taking into account the complexity of each component.
+as `atoms`, `molecules` and `organisms` taking into account the complexity of each component.
 
 - `data` folder contains the static data used to populate the components with sample data.
 
