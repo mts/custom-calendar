@@ -7,17 +7,17 @@ import './CalendarInput.scss';
 
 const CalendarInput = ({today, toggleView}) => {
   const getText = () => `
-    ${String(today.year)} -
+    ${
+      today.dateOfTheMonth < 10
+      ? `0${String(today.dateOfTheMonth)}`
+      : String(today.dateOfTheMonth)
+    } -
     ${
       today.monthOfYear < 10
       ? `0${String(today.monthOfYear)}`
       : String(today.monthOfYear)
     } -
-    ${
-      today.dateOfTheMonth < 10
-      ? `0${String(today.dateOfTheMonth)}`
-      : String(today.dateOfTheMonth)
-    }
+    ${String(today.year)}
   `;
 
   return (
