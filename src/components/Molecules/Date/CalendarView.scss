@@ -1,23 +1,21 @@
 @import '../../../theming/config';
 
 .calendar-view {
-  &__top {
+  &__text {
+    margin-left: 3px;
+    margin-bottom: 10px;
+  }
+
+  &__month-year {
     display: flex;
     flex-direction: row;
     width: 325px;
     padding-bottom: 10px;
     justify-content: space-between;
-
-    &-left {
-
-    }
-
-    &-right {
-
-    }
+    text-transform:capitalize;
   }
 
-  &__bottom {
+  &__day {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
