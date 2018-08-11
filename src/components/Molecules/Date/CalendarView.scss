@@ -1,18 +1,22 @@
 @import '../../../theming/config';
 
 .calendar-view {
-  &__text {
-    margin-left: 3px;
-    margin-bottom: 10px;
+  border-style: solid;
+  border-color: $color-grey;
+  border-width: thin;
+  width: 325px;
+
+  &__label {
+    margin: 10px 0 10px 20px;
   }
 
   &__month-year {
     display: flex;
     flex-direction: row;
-    width: 325px;
-    padding-bottom: 10px;
+    width: 280px;
     justify-content: space-between;
     text-transform:capitalize;
+    margin-left: 20px;
   }
 
   &__day {
@@ -24,12 +28,8 @@
     user-select: none;
     cursor: pointer;
 
-    border-style: solid;
-    border-color: $color-grey;
-    border-width: thin;
-
     justify-content: space-between;
-    padding: 20px 10px 20px 10px;
+    padding: 0 10px 20px 10px;
 
     &-day {
       line-height: 30px;
@@ -62,5 +62,4 @@
       }
     }
   }
-
 }

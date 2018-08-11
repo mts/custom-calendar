@@ -17,7 +17,7 @@ const Select = ({options, selectedOptionIndex, optionType, onChange}) =>  {
   return (
     <div className="select">
       <div onClick={onClickLeft} className="select__left">
-        <Icon name={'chevron-thin-left'} width={15} height={15} />
+        <Icon name={'backward'} width={15} height={15} />
       </div>
       <div className={cx('select__center', {
         'select__center--week': optionType === 'week',
@@ -27,7 +27,7 @@ const Select = ({options, selectedOptionIndex, optionType, onChange}) =>  {
         <Label color="blue" size="medium" text={options[selectedOptionIndex]} />
       </div>
       <div onClick={onClickRight} className="select__right">
-        <Icon name={'chevron-thin-right'} width={15} height={15} />
+        <Icon name={'forward'} width={15} height={15} />
       </div>
     </div>
   )

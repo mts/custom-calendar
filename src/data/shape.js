@@ -7,3 +7,9 @@ export const iconShape = {
   fill: string,
   className: string
 };
+
+export const dayShape = {
+  year: number.isRequired,
+  monthOfYear: number.isRequired,
+  dateOfTheMonth: number.isRequired
+};

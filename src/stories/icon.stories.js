@@ -8,4 +8,13 @@ storiesOf('Icon', module)
   ))
   .add('chevron-thin-right', () => (
     <Icon name={'chevron-thin-right'} width={20} height={20} />
+  ))
+  .add('backward', () => (
+    <Icon name={'backward'} width={20} height={20} />
+  ))
+   .add('forward', () => (
+    <Icon name={'forward'} width={20} height={20} />
+  ))
+  .add('calendar', () => (
+    <Icon name={'calendar'} width={20} height={20} />
   ));

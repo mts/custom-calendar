@@ -50,7 +50,7 @@ class CalendarView extends React.Component {
 
     return (
       <div className="calendar-view">
-        <div className="calendar-view__text">
+        <div className="calendar-view__label">
           <Label color="grey" size="small" text="Ingangsdatum" />
         </div>
         <div className="calendar-view__month-year">
