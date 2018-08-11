@@ -45,7 +45,7 @@ class Select extends React.Component {
     return (
       <div className="select">
         <div onClick={this.onClickLeft} className="select__left">
-          <Icon name={'chevron-thin-left'} width={20} height={20} />
+          <Icon name={'chevron-thin-left'} width={15} height={15} />
         </div>
         <div className={cx('select__center', {
           'select__center--week': optionType === 'week',
@@ -55,7 +55,7 @@ class Select extends React.Component {
           <Label color="blue" size="medium" text={options[selectedIndex]} />
         </div>
         <div onClick={this.onClickRight} className="select__right">
-          <Icon name={'chevron-thin-right'} width={20} height={20} />
+          <Icon name={'chevron-thin-right'} width={15} height={15} />
         </div>
       </div>
     )

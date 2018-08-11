@@ -16,7 +16,7 @@ const CalendarView = ({dayNames, displayDays}) => {
   return (
     <div className="calendar-view">
       <div className="calendar-view__text">
-        <Label color="grey" size="medium" text="Ingangsdatum" />
+        <Label color="grey" size="small" text="Ingangsdatum" />
       </div>
       <div className="calendar-view__month-year">
         <Select

@@ -21,8 +21,7 @@ export const monthOptions = [
   'augustus',
   'september',
   'oktober',
-  'november',
-  'december'
+  'november'
 ];
 
 export const yearOptions = getRange({
