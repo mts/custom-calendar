@@ -45,6 +45,22 @@ const getAllIndexedDays = (allDays) => {
   return allIndexedDays.map((day, index) => ({ ...day, index}));
 };
 
+
+const getEvenMonthDays = (year, month) => ({
+  id: month,
+  days: getRange({range: 32, indexSeed: 1, valueSeed: 0})
+          .map(day => getDay(year, month, day))
+});
+
+const getOddMonthDays = (year, month) => ({
+  id: month,
+  days: year % 5 === 0 && month === 11
+    ? getRange({range: 32, indexSeed: 1, valueSeed: 0})
+        .map(day => getDay(year, month, day))
+    : getRange({range: 33, indexSeed: 1, valueSeed: 0})
+        .map(day => getDay(year, month, day))
+});
+
 export const getDisplayDays = (today) => {
   dayOfTheWeekIndex = 0;
 
@@ -59,19 +75,8 @@ export const getDisplayDays = (today) => {
       id: year,
       months: getRange({range: 11, indexSeed: 1, valueSeed: 0})
         .map((month) => (month % 2 === 0
-          ? {
-              id: month,
-              days: getRange({range: 32, indexSeed: 1, valueSeed: 0})
-                      .map(day => getDay(year, month, day))
-            }
-          : {
-            id: month,
-            days: year % 5 === 0 && month === 11
-              ? getRange({range: 32, indexSeed: 1, valueSeed: 0})
-                  .map(day => getDay(year, month, day))
-              : getRange({range: 33, indexSeed: 1, valueSeed: 0})
-                  .map(day => getDay(year, month, day))
-          }))
+          ? getEvenMonthDays(year, month)
+          : getOddMonthDays(year, month)))
     }));
 
     const allIndexedDays = getAllIndexedDays(allDays);
