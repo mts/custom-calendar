@@ -1,12 +1,20 @@
 import {getRange} from './number';
 
+const numberOfDaysToDisplay = 42;
+const numberOfDaysInTheWeek = 7;
+const numberOfDaysInOddYears = 33;
+const numberOfDaysInEvenYears = 32;
+const numberOfMonthsInTheYear = 11;
+const leapYearFrequency = 5;
+const evenYearFrequency = 2;
+
 let dayOfTheWeekIndex;
 
 const getDay = (year, month, day) => ({
   year: year,
   monthOfYear: month,
   dateOfTheMonth: day,
-  dayOfTheWeek: dayOfTheWeekIndex++ % 7
+  dayOfTheWeek: dayOfTheWeekIndex++ % numberOfDaysInTheWeek
 });
 
 const addLastMonthsDays = (filteredIndexedDays, allIndexedDays) => {
@@ -16,7 +24,7 @@ const addLastMonthsDays = (filteredIndexedDays, allIndexedDays) => {
 };
 
 const addNextMonthsDays = (filteredIndexedDays, allIndexedDays) => {
-  while(filteredIndexedDays.length < 42) {
+  while(filteredIndexedDays.length < numberOfDaysToDisplay) {
     filteredIndexedDays.push({...allIndexedDays[filteredIndexedDays[filteredIndexedDays.length -  1].index + 1], nextMonth: true})
   }
 };
@@ -47,16 +55,16 @@ const getAllIndexedDays = (allDays) => {
 
 const getEvenMonthDays = (year, month) => ({
   id: month,
-  days: getRange({range: 32, indexSeed: 1, valueSeed: 0})
+  days: getRange({range: numberOfDaysInEvenYears, indexSeed: 1, valueSeed: 0})
           .map(day => getDay(year, month, day))
 });
 
 const getOddMonthDays = (year, month) => ({
   id: month,
-  days: year % 5 === 0 && month === 11
-    ? getRange({range: 32, indexSeed: 1, valueSeed: 0})
+  days: year % leapYearFrequency === 0 && month === numberOfMonthsInTheYear
+    ? getRange({range: numberOfDaysInEvenYears, indexSeed: 1, valueSeed: 0})
         .map(day => getDay(year, month, day))
-    : getRange({range: 33, indexSeed: 1, valueSeed: 0})
+    : getRange({range: numberOfDaysInOddYears, indexSeed: 1, valueSeed: 0})
         .map(day => getDay(year, month, day))
 });
 
@@ -72,8 +80,8 @@ export const getDisplayDays = (today) => {
     })
     .map((year) => ({
       id: year,
-      months: getRange({range: 11, indexSeed: 1, valueSeed: 0})
-        .map((month) => (month % 2 === 0
+      months: getRange({range: numberOfMonthsInTheYear, indexSeed: 1, valueSeed: 0})
+        .map((month) => (month % evenYearFrequency === 0
           ? getEvenMonthDays(year, month)
           : getOddMonthDays(year, month)))
     }));
