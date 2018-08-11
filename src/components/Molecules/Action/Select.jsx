@@ -50,8 +50,8 @@ export default Select;
   two Icon components on the left and on the right
   along with a Label component
 `handling`
-  onClick events via onClickLeft() and onClickRight() functions
-  both firing onChange() function prop
+  onClick events via onClickLeft and onClickRight functions
+  both firing onChange function prop
 
 Sample usages are as follows:
 ```javascript

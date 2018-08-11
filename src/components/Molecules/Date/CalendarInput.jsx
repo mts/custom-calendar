@@ -55,7 +55,7 @@ export default CalendarInput;
 `rendering`
   two Label components and an Icon component
 `handling`
-  onClick event by firing toggleView() function prop
+  onClick event by firing toggleView function prop
 
 Sample usage is as follows:
 ```javascript

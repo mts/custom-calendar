@@ -116,8 +116,8 @@ export default CalendarView;
   Label and Select components
 
 `handling`
-  a number of events via onDayChange() , onMonthChange() and onYearChange functions
-  all firing onChange() function prop
+  a number of events via onDayChange, onMonthChange and onYearChange functions
+  all firing onChange function prop
 
 Sample usages are as follows:
 ```javascript
