@@ -107,3 +107,27 @@ CalendarView.propTypes = {
 };
 
 export default CalendarView;
+
+/*
+`CalendarView` is a
+  stateless class component
+  receiving `displayDays` prop
+`rendering`
+  Label and Select components
+
+`handling`
+  a number of events via onDayChange() , onMonthChange() and onYearChange functions
+  all firing onChange() function prop
+
+Sample usages are as follows:
+```javascript
+  <CalendarView
+    displayDays={getDisplayDays({
+      year: 2017,
+      monthOfYear: 5,
+      dateOfTheMonth: 15,
+    })}
+    toggleView={() => {}}
+  />
+```
+*/

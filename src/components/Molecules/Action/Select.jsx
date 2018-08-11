@@ -52,6 +52,7 @@ export default Select;
 `handling`
   onClick events via onClickLeft() and onClickRight() functions
   both firing onChange() function prop
+
 Sample usages are as follows:
 ```javascript
   <Select
