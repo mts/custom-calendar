@@ -35,10 +35,10 @@ export default Icon;
 
 Sample usages are as follows:
 ```javascript
-    <Icon name={'chevron-thin-left'} width={20} height={20} />
-    <Icon name={'chevron-thin-right'} width={20} height={20} />
-    <Icon name={'backward'} width={20} height={20} />
-    <Icon name={'forward'} width={20} height={20} />
-    <Icon name={'calendar'} width={20} height={20} />
+  <Icon name={'chevron-thin-left'} width={20} height={20} />
+  <Icon name={'chevron-thin-right'} width={20} height={20} />
+  <Icon name={'backward'} width={20} height={20} />
+  <Icon name={'forward'} width={20} height={20} />
+  <Icon name={'calendar'} width={20} height={20} />
 ```
 */

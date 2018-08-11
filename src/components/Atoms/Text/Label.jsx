@@ -40,19 +40,19 @@ export default Label;
 
 Sample usages are as follows:
 ```javascript
-    <Label color="black" size="tiny" text="some label" />
-    <Label color="black" size="small" text="some label" />
-    <Label color="black" size="medium" text="some label" />
-    <Label color="black" size="large" text="some label" />
+  <Label color="black" size="tiny" text="some label" />
+  <Label color="black" size="small" text="some label" />
+  <Label color="black" size="medium" text="some label" />
+  <Label color="black" size="large" text="some label" />
 
-    <Label color="blue" size="tiny" text="some label" />
-    <Label color="blue" size="small" text="some label" />
-    <Label color="blue" size="medium" text="some label" />
-    <Label color="blue" size="large" text="some label" />
+  <Label color="blue" size="tiny" text="some label" />
+  <Label color="blue" size="small" text="some label" />
+  <Label color="blue" size="medium" text="some label" />
+  <Label color="blue" size="large" text="some label" />
 
-    <Label color="grey" size="tiny" text="some label" />
-    <Label color="grey" size="small" text="some label" />
-    <Label color="grey" size="medium" text="some label" />
-    <Label color="grey" size="large" text="some label" />
+  <Label color="grey" size="tiny" text="some label" />
+  <Label color="grey" size="small" text="some label" />
+  <Label color="grey" size="medium" text="some label" />
+  <Label color="grey" size="large" text="some label" />
 ```
 */
