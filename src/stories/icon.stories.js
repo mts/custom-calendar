@@ -1,3 +1,5 @@
+// Icon stories for Storybook
+
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import Icon from '../components/Atoms/Image/Icon';

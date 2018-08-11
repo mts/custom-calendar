@@ -1,3 +1,5 @@
+// font utility to collect icomoon font paths
+
 import iconPaths from '../fonts/selection.json';
 
 export const getPath = (name) => {

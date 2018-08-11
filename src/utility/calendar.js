@@ -1,3 +1,5 @@
+// calendar utility to calculate all dates to populate in a calendar
+
 import {getRange} from './number';
 
 const numberOfDaysToDisplay = 42;

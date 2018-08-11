@@ -1,3 +1,5 @@
+// Select stories for Storybook
+
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import Select from '../components/Molecules/Action/Select';

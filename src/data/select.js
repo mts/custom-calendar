@@ -1,3 +1,5 @@
+// Select molecule sample data
+
 import {getRange} from '../utility/number';
 
 export const yearStart = 1900;

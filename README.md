@@ -15,7 +15,7 @@ Development approach is to build big and complex components by first breaking th
 
 - Atomic Design
 
-  `Fashion` component is built using [Atomic Design](http://atomicdesign.bradfrost.com/table-of-contents/) patterns to promote `reusability` and `scalability` with a `clearly defined component structure`.
+  `Custom Calendar` component is built using [Atomic Design](http://atomicdesign.bradfrost.com/table-of-contents/) patterns to promote `reusability` and `scalability` with a `clearly defined component structure`.
 
   Components are built from small to big in terms of complexity. Atoms are built to form molecules,
   molecules to form a single `Calendar` organism.

@@ -1,3 +1,5 @@
+// Reusable shapes for component prop types
+
 import {string, number} from 'prop-types';
 
 export const iconShape = {
