@@ -3,8 +3,6 @@ import CalendarView from '../Molecules/CalendarView';
 import {getDisplayDays} from '../../utility/calendar';
 
 const Calendar = () => {
-  console.clear();
-
   const today = {
     year: 2018,
     monthOfYear: 8,
