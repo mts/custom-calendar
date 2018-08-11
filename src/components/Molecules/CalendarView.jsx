@@ -1,6 +1,7 @@
 import React from 'react';
 import {shape, arrayOf, number} from 'prop-types';
 import './CalendarView.scss';
+import cx from 'classnames';
 
 const dateShape = shape({
   day: number,
@@ -18,11 +19,17 @@ const CalendarView = ({dayNames, displayDays}) => {
             {dayName}
         </span>
       ))}
-      {displayDays.map((date, index) => (
+      {displayDays.map((day, index) => (
         <span
           key={index}
-          className="calendar-view__day">
-            {date.dateOfTheMonth}
+          className={cx('calendar-view__day', {
+            'calendar-view__day-last-month': day.lastMonth,
+            'calendar-view__day-this-month': day.thisMonth,
+            'calendar-view__day-today': day.today,
+            'calendar-view__day-next-month': day.nextMonth
+          })}
+          >
+            {day.dateOfTheMonth}
         </span>
       ))}
     </div>
