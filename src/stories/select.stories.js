@@ -11,6 +11,7 @@ storiesOf('Select', module)
       options={weekOptions.map((week) => week.toUpperCase())}
       selectedOptionIndex={weekOptions.length - 1}
       optionType={'week'}
+      onChange={() => {}}
     />
   ))
   .add('month', () => (
@@ -18,6 +19,7 @@ storiesOf('Select', module)
       options={monthOptions.map((month) => month.toUpperCase())}
       selectedOptionIndex={monthOptions.length - 1}
       optionType={'month'}
+      onChange={() => {}}
     />
   ))
   .add('year', () => (
@@ -25,5 +27,6 @@ storiesOf('Select', module)
       options={yearOptions.map((year) => String(year))}
       selectedOptionIndex={yearOptions.length - 1}
       optionType={'year'}
+      onChange={() => {}}
     />
   ));

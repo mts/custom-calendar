@@ -13,6 +13,6 @@ storiesOf('CalendarView', module)
         monthOfYear: 5,
         dateOfTheMonth: 15,
       })}
-      toggleView={() => {}}
+      onChange={() => {}}
     />
   ));

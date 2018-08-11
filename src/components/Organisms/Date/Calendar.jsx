@@ -1,9 +1,9 @@
 import React from 'react';
 import {shape} from 'prop-types';
-import CalendarView from '../Molecules/Date/CalendarView';
-import CalendarInput from '../Molecules/Date/CalendarInput';
-import {getDisplayDays} from '../../utility/calendar';
-import {dayShape} from '../../data/shape';
+import CalendarView from '../../Molecules/Date/CalendarView';
+import CalendarInput from '../../Molecules/Date/CalendarInput';
+import {getDisplayDays} from '../../../utility/calendar';
+import {dayShape} from '../../../data/shape';
 
 class Calendar extends React.Component {
   constructor(props) {

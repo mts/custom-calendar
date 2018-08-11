@@ -229,7 +229,7 @@ Sample usage is as follows:
 
 - `CalendarView` is a
   stateless class component
-  receiving `displayDays` prop
+  receiving `displayDays, onChange` props
 `rendering`
   Label and Select components
 

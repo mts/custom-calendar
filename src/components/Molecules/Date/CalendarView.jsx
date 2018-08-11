@@ -1,5 +1,5 @@
 import React from 'react';
-import {shape, arrayOf, number} from 'prop-types';
+import {shape, arrayOf, number, func} from 'prop-types';
 import Select from '../Action/Select';
 import Label from '../../Atoms/Text/Label';
 import cx from 'classnames';
@@ -104,6 +104,7 @@ CalendarView.propTypes = {
   displayDays: arrayOf(
     shape(dateShape.isRequired)
   ).isRequired,
+  onChange: func.isRequired
 };
 
 export default CalendarView;
@@ -111,7 +112,7 @@ export default CalendarView;
 /*
 `CalendarView` is a
   stateless class component
-  receiving `displayDays` prop
+  receiving `displayDays and onChange` props
 `rendering`
   Label and Select components
 
