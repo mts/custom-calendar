@@ -10,7 +10,6 @@ class Select extends React.Component {
     super(props);
 
     const {options, selectedOptionIndex} = this.props;
-
     this.state = {
       selectedIndex: options.length > 0 ? selectedOptionIndex : -1
     }
@@ -41,6 +40,7 @@ class Select extends React.Component {
   render() {
     const {options, optionType} = this.props;
     const {selectedIndex} = this.state;
+    console.log('~render~selectedIndex', selectedIndex);
 
     if (selectedIndex === -1) {
       return null;

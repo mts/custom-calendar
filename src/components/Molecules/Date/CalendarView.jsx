@@ -16,7 +16,13 @@ class CalendarView extends React.Component {
   onDayChange = (index) => {
     const {onChange, displayDays} = this.props;
 
-    onChange(displayDays.find((day) => day.index === index));
+    const day = displayDays.find((day) => day.index === index);
+
+    onChange({
+        year: day.year,
+        monthOfYear: day.monthOfYear,
+        dateOfTheMonth: day.dateOfTheMonth,
+    });
   };
 
   onMonthChange = (index) => {
@@ -42,6 +48,7 @@ class CalendarView extends React.Component {
   render() {
     const{dayNames, displayDays} = this.props;
 
+    console.log('~month~', displayDays.find((day) => day.today === true).monthOfYear);
     return (
       <div className="calendar-view">
         <div className="calendar-view__text">

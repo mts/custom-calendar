@@ -7,22 +7,22 @@ class Calendar extends React.Component {
     super(props);
 
     this.state = {
-      today: {
+      displayDays: getDisplayDays({
         year: 2018,
         monthOfYear: 8,
         dateOfTheMonth: 7,
-      }
-    }
+      })
+    };
   }
 
   onChange = (day) => {
-    this.setState({today: day});
+    this.setState({displayDays: getDisplayDays(day)});
   };
 
   render() {
     return (
       <CalendarView
-        displayDays={getDisplayDays(this.state.today)}
+        displayDays={this.state.displayDays}
         onChange={this.onChange}
       />
     )
