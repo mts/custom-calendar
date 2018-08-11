@@ -1,0 +1,19 @@
+.select {
+  display: flex;
+  flex-direction: row;
+
+
+  &__left {
+    cursor: pointer;
+  }
+
+  &__center {
+    flex: 1;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  &__right {
+    cursor: pointer;
+  }
+}

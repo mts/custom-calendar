@@ -1,4 +1,4 @@
-@import '../../theming/config';
+@import '../../../theming/config';
 
 .calendar-view {
   position: relative;
@@ -15,7 +15,7 @@
   border-width: thin;
 
   justify-content: space-between;
-  padding-bottom: 20px;
+  padding: 20px 10px 20px 10px;
 
   &__day {
     line-height: 30px;
