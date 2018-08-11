@@ -1,3 +1,5 @@
+import {getRange} from './number';
+
 let dayOfTheWeekIndex;
 
 const getDay = (year, month, day) => ({
@@ -6,8 +8,6 @@ const getDay = (year, month, day) => ({
   dateOfTheMonth: day,
   dayOfTheWeek: dayOfTheWeekIndex++ % 7
 });
-
-const getRange = ({range, indexSeed, valueSeed}) => Array(range).fill().map((_, index) => valueSeed + index + indexSeed);
 
 const addLastMonthsDays = (filteredIndexedDays, allIndexedDays) => {
   while(filteredIndexedDays[0].dayOfTheWeek > 0) {

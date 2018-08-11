@@ -8,9 +8,20 @@
   }
 
   &__center {
-    flex: 1;
     line-height: 20px;
     text-align: center;
+
+    &--week {
+      width: 110px;
+    }
+
+    &--month {
+      width: 100px;
+    }
+
+    &--year {
+      width: 40px;
+    }
   }
 
   &__right {

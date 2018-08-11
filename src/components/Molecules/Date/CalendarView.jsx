@@ -1,7 +1,9 @@
 import React from 'react';
 import {shape, arrayOf, number} from 'prop-types';
-import './CalendarView.scss';
+import Select from '../Action/Select';
 import cx from 'classnames';
+import './CalendarView.scss';
+import {monthOptions, yearOptions} from '../../../data/select';
 
 const dateShape = shape({
   day: number,
@@ -12,26 +14,40 @@ const dateShape = shape({
 const CalendarView = ({dayNames, displayDays}) => {
   return (
     <div className="calendar-view">
-      {dayNames.map((dayName) => (
-        <span
-          key={dayName}
-          className="calendar-view__day">
-            {dayName}
-        </span>
-      ))}
-      {displayDays.map((day, index) => (
-        <span
-          key={index}
-          className={cx('calendar-view__day', {
-            'calendar-view__day-last-month': day.lastMonth,
-            'calendar-view__day-this-month': day.thisMonth,
-            'calendar-view__day-today': day.today,
-            'calendar-view__day-next-month': day.nextMonth
-          })}
-          >
-            {day.dateOfTheMonth}
-        </span>
-      ))}
+      <div className="calendar-view__top">
+        <Select
+          options={monthOptions.map((month) => month.toUpperCase())}
+          selectedOptionIndex={monthOptions.length - 1}
+          optionType={'month'}
+        />
+        <Select
+          options={yearOptions.map((year) => String(year))}
+          selectedOptionIndex={yearOptions.length - 1}
+          optionType={'year'}
+        />
+      </div>
+      <div className="calendar-view__bottom">
+        {dayNames.map((dayName) => (
+          <span
+            key={dayName}
+            className="calendar-view__bottom-day">
+              {dayName}
+          </span>
+        ))}
+        {displayDays.map((day, index) => (
+          <span
+            key={index}
+            className={cx('calendar-view__bottom-day', {
+              'calendar-view__bottom-day-last-month': day.lastMonth,
+              'calendar-view__bottom-day-this-month': day.thisMonth,
+              'calendar-view__bottom-day-today': day.today,
+              'calendar-view__bottom-day-next-month': day.nextMonth
+            })}
+            >
+              {day.dateOfTheMonth}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
