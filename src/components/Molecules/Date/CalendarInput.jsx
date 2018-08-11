@@ -47,3 +47,24 @@ CalendarInput.propTypes = {
 };
 
 export default CalendarInput;
+
+/*
+`CalendarInput` is a
+  stateless function component
+  receiving `today, toggleView` props
+`rendering`
+  two Label components and an Icon component
+`handling`
+  onClick event by firing toggleView() function prop
+Sample usage is as follows:
+```javascript
+  <CalendarInput
+    today={{
+      year: 2015,
+      monthOfYear: 9,
+      dateOfTheMonth: 27,
+    }}
+    toggleView={() => {}}
+  />
+```
+*/
