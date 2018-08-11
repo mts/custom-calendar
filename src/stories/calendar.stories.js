@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
-import Calendar from '../components/Organisms/Calendar';
+import Calendar from '../components/Organisms/Date/Calendar';
 
 storiesOf('Calendar', module)
   .add('default', () => (

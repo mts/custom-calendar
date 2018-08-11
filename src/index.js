@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Calendar from './components/Organisms/Calendar';
+import Calendar from './components/Organisms/Date/Calendar';
 import './index.scss';
 
 ReactDOM.render(
