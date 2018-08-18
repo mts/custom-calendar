@@ -1,7 +1,7 @@
 // CalendarView stories for Storybook
 
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
 import CalendarView from '../components/Molecules/Date/CalendarView';
 import {getDisplayDays} from '../utility/calendar';
 

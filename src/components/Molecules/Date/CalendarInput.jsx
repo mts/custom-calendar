@@ -3,7 +3,7 @@ import {shape, func} from 'prop-types';
 import Label from '../../Atoms/Text/Label';
 import Icon from '../../Atoms/Image/Icon';
 import {dayShape} from '../../../data/shape';
-import './CalendarInput.scss';
+import './CalendarInput.css';
 
 const CalendarInput = ({today, toggleView}) => {
   const getText = () => `

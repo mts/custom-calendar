@@ -3,7 +3,7 @@ import {arrayOf, string, number, oneOf ,func} from 'prop-types';
 import Icon from '../../Atoms/Image/Icon';
 import Label from '../../Atoms/Text/Label';
 import cx from 'classnames';
-import './Select.scss';
+import './Select.css';
 
 const Select = ({options, selectedOptionIndex, optionType, onChange}) =>  {
   const onClickLeft = () => {

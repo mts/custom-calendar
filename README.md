@@ -1,12 +1,19 @@
 # Custom Calendar
 
+## Features
+- A year has 11 months
+- Even months have 32 days, odd months have 33
+- 11th month has 1 day less in leap years
+- A leap year is a year divisible by 5
+- A week has 7 days (monday .. sunday)
+
 ## Approach
 Development approach is to build big and complex components by first breaking them down into smaller and less complex components to promote `modularity`, `reusability`, `scalability`, `maintainability` via `Component Driven Design (CDD)` and `Atomic Design Patterns`. Following this approach, smaller pieces of the whole are built first as `atoms` and `molecules` implemented as React components to together form `organisms` and `templates`.
 
 ## Web technologies & patterns
 - Create React App
 
-  This project is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+  This project is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
   `react` and `react-dom` are used to render the layout
 
 - Storybook
@@ -43,30 +50,37 @@ Development approach is to build big and complex components by first breaking th
 ## Development Notes
 - create-react-app is used to initially create the package.
 
-- Application entry point is `/src/index.js` as indicated in `/config/webpack.config.dev.js` and `/config/webpack.config.prod.js` files
+- Application entry point is `/src/index.js`
 
-- Application is already ejected from react-scripts using `npm run eject` to extend webpack configuration with
-`scss` loader.
-
-- `/.storybook/config.js` contains Storybook configuration
-`/.storybook/webpack.config.js` extends webpack configuration for Storybook with `scss` loader.
-
-- `sass-loader` and `node-sass` packages are used by webpack for compiling `.scss` files.
+- Sass CSS Preprocessor is used for styling
+  [Adding a CSS Preprocessor (Sass, Less etc.)](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc)
 
 ## Available Scripts
 
-- `npm start`- `npm start`
-Runs the app in the development mode.<br>
+- `npm start`
+Runs the app in the development mode executing `watch-css` and `start-js` scripts<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 - `npm run build`
-Builds the app for production to the `build` folder.<br>
+Builds the app for production to the `build` folder executing `react-scripts build` script.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
+- `npm run build-js`
+Builds react app executing `react-scripts build`
+
+- `npm run start-js`
+Starts react app executing `react-scripts start`
+
+- `npm run build-css`
+Compiles CSS into SASS executing `node-sass-chokidar src/ -o src/`
+
+- `npm run watch-css`
+Compiles CSS into SASS and watches styling changes executing `npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive`
 
 - `npm run storybook`
 Runs Storybook<br>
 Runs Storybook and shows all available components and their stories.
-Open [http://localhost:6006](http://localhost:6006) to view it in the browser.
+Open [http://localhost:9009](http://localhost:9009) to view it in the browser.
 
 - `npm run build-storybook`
 Export Storybook as a static app to `storybook-static` folder.<br>
@@ -74,6 +88,8 @@ Export Storybook as a static app to `storybook-static` folder.<br>
 - `npm test`
 Launches the test runner in the interactive watch mode.
 
+- `npm run eject`
+Ejects `create-react-app` and exposes `react-scripts`.
 
 ## Directory structure
 ```

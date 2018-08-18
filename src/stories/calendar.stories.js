@@ -1,7 +1,7 @@
 // Calendar stories for Storybook
 
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
 import Calendar from '../components/Organisms/Date/Calendar';
 
 storiesOf('Calendar', module)

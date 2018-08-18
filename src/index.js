@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Calendar from './components/Organisms/Date/Calendar';
-import './index.scss';
+import './index.css';
 
 ReactDOM.render(
   <div className="calendar">

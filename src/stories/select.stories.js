@@ -1,7 +1,7 @@
 // Select stories for Storybook
 
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
 import Select from '../components/Molecules/Action/Select';
 import {weekOptions, monthOptions, yearOptions} from '../data/select';
 

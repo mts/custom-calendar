@@ -1,4 +1,4 @@
-import './Label.scss';
+import './Label.css';
 import React from 'react';
 import {string, oneOf} from 'prop-types';
 import cx from 'classnames';

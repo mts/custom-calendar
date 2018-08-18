@@ -3,7 +3,7 @@ import {shape, arrayOf, number, func} from 'prop-types';
 import Select from '../Action/Select';
 import Label from '../../Atoms/Text/Label';
 import cx from 'classnames';
-import './CalendarView.scss';
+import './CalendarView.css';
 import {monthOptions, yearOptions, yearStart} from '../../../data/select';
 
 const dateShape = shape({

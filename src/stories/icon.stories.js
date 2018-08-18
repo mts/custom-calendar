@@ -1,7 +1,7 @@
 // Icon stories for Storybook
 
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
 import Icon from '../components/Atoms/Image/Icon';
 
 storiesOf('Icon', module)
