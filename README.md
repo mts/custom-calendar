@@ -1,6 +1,9 @@
 # Custom Calendar
 
 ## Features
+
+![](/src/asset/custom-calendar.png)
+
 - A year has 11 months
 - Even months have 32 days, odd months have 33
 - 11th month has 1 day less in leap years
