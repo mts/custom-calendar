@@ -2,13 +2,13 @@
 
 ## Features
 
-![](/src/asset/custom-calendar.png)
-
 - A year has 11 months
 - Even months have 32 days, odd months have 33
 - 11th month has 1 day less in leap years
 - A leap year is a year divisible by 5
 - A week has 7 days (monday .. sunday)
+
+![](/src/asset/custom-calendar.png)
 
 ## Approach
 Development approach is to build big and complex components by first breaking them down into smaller and less complex components to promote `modularity`, `reusability`, `scalability`, `maintainability` via `Component Driven Design (CDD)` and `Atomic Design Patterns`. Following this approach, smaller pieces of the whole are built first as `atoms` and `molecules` implemented as React components to together form `organisms` and `templates`.
