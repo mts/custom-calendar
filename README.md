@@ -2,7 +2,7 @@
 
 ## Features
 
-![](/src/asset/custom-calendar.png = 500x300)
+![](/src/asset/custom-calendar.png)
 
 - A year has 11 months
 - Even months have 32 days, odd months have 33
