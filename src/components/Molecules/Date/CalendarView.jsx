@@ -51,7 +51,7 @@ class CalendarView extends React.Component {
     return (
       <div className="calendar-view">
         <div className="calendar-view__label">
-          <Label color="grey" size="small" text="Ingangsdatum" />
+          <Label color="grey" size="small" text="Starting date" />
         </div>
         <div className="calendar-view__month-year">
           <Select
@@ -97,7 +97,7 @@ class CalendarView extends React.Component {
 }
 
 CalendarView.defaultProps = {
-  dayNames: ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za']
+  dayNames: ['Su', 'Ma', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 };
 
 CalendarView.propTypes = {

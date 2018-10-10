@@ -24,7 +24,7 @@ const CalendarInput = ({today, toggleView}) => {
     <div className="calendar-input">
       <div className="calendar-input__left">
         <div className="calendar-input__left-label">
-          <Label color="grey" size="small" text="Ingangsdatum" />
+          <Label color="grey" size="small" text="Starting date" />
         </div>
         <div className="calendar-input__left-text">
           <Label

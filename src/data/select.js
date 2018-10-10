@@ -5,27 +5,27 @@ import {getRange} from '../utility/number';
 export const yearStart = 1900;
 
 export const weekOptions = [
-  'Maandag',
-  'Dinsdag',
-  'Woensdag',
-  'Donderdag',
-  'Vrijdag',
-  'Zaterdag',
-  'Zondag'
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday'
 ];
 
 export const monthOptions = [
-  'januari',
-  'februari',
-  'maart',
-  'april',
-  'mei',
-  'juni',
-  'juli',
-  'augustus',
-  'september',
-  'oktober',
-  'november'
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November'
 ];
 
 export const yearOptions = getRange({
