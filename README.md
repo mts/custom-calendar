@@ -3,7 +3,7 @@
 ## Features
 
 - A year has 11 months
-- Even months have 32 days, odd months have 33
+- Even months have 32, odd months have 33 days
 - 11th month has 1 day less in leap years
 - A leap year is a year divisible by 5
 - A week has 7 days (monday .. sunday)
@@ -289,3 +289,7 @@ Sample usages are as follows:
     }}
   />
 ```
+
+## License
+
+[MIT](./LICENSE) &copy; [MTS](https://github.com/mts)
