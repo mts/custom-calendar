@@ -11,7 +11,7 @@
     "eject": "react-scripts eject",
     "start-storybook": "start-storybook -p 3003 -c .storybook",
     "build-storybook": "build-storybook -c .storybook -o .storybook-static",
-    "deploy-storybook": "gh-pages -d .storybook-static",
+    "deploy-storybook": "gh-pages -d .storybook-static"
   },
   "repository": {
     "type": "git",
