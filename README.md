@@ -1,5 +1,9 @@
 # Custom Calendar
 
+[![travis build](https://img.shields.io/travis/mts/custom-calendar.svg?style=flat-square)](https://travis-ci.org/mts/custom-calendar)
+
+> React UI for datepicker for choosing dates from a custom calendar
+
 ## Features
 
 - A year has 11 months
@@ -66,6 +70,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Builds the app for production to the `build` folder executing `react-scripts build` script.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+- `npm run prebuild`
+Removes build and all generated .css files .storybook-static folders.<br>
+
 - `npm run build-js`
 Builds react app executing `react-scripts build`
 
@@ -78,16 +85,16 @@ Compiles CSS into SASS executing `node-sass-chokidar src/ -o src/`
 - `npm run watch-css`
 Compiles CSS into SASS and watches styling changes executing `npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive`
 
-- `npm run storybook`
+- `npm run start-storybook`
 Runs Storybook<br>
 Runs Storybook and shows all available components and their stories.
-Open [http://localhost:9009](http://localhost:9009) to view it in the browser.
+Open [http://localhost:3003](http://localhost:3003) to view it in the browser.
 
 - `npm run build-storybook`
-Export Storybook as a static app to `storybook-static` folder.<br>
+Export Storybook as a static app to `.storybook-static` folder.<br>
 
-- `npm test`
-Launches the test runner in the interactive watch mode.
+- `npm run deploy-storybook`
+`Deploy static website in the .storybook-static` folder to GitHub pages.<br>
 
 - `npm run eject`
 Ejects `create-react-app` and exposes `react-scripts`.
@@ -293,3 +300,6 @@ Sample usages are as follows:
 ## License
 
 [MIT](./LICENSE) &copy; [MTS](https://github.com/mts)
+
+[custom-calendar]: https://github.com/mts/custom-calendar
+[react]: https://github.com/facebook/react
